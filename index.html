@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Neighborhood map</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <!--fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic,900italic,900&amp;subset=latin,latin-ext" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="left-column" class="col-md-3">
+            <h2>Places to go in Bogotá, Colombia</h2>
+
+            <input type="search"
+                   id="search-places"
+                   placeholder="Search for cool places"
+                   data-bind="value: query, valueUpdate: 'keyup'">
+
+            <ul class="location-list" data-bind="template: {initialLocations:'name', foreach:sitesFilter}, value: self.sitesFilter">
+                <li data-bind="text: title"></li>
+            </ul>
+        </div>
+        <div id="map" class="col-md-9"></div>
+        <script type="text/javascript" src="js/knockout-3.4.0.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script type="text/javascript" src="js/mapa.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByTvKnxKNsPT2IpbHjxE4VR2OxJ9BiKp8&v1&callback=initMap" onerror="googleError()">
+        </script>
+    </body>
+</html>
